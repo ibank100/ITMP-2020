@@ -1,0 +1,19 @@
+body {
+	background: linear-gradient(to right, dimgray , mediumpurple);
+}
+
+h3, .summ {
+	border: 2px solid;
+  	background-color: paleturquoise;
+	border-radius: .5em;
+	padding: 4px;
+}
+
+.row {
+	border-left: 6px solid darkkhaki;
+  	background-color: aliceblue;
+	border-radius: .5em;
+	padding: 4px;
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
