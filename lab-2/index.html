@@ -10,48 +10,60 @@
 
 <body>
 	<div id="app">
-	
+		About
+		<h3>username {{person.username}}</h3>
+		<h3>name {{person.name}}</h3>
+		<h3>email {{person.email}}</h3>
+		<h3>website {{person.website}}</h3>
+		<h3>company {{person.company.name}}</h3>
+
+		User
+		<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)" id="name">{{u.username}}</h2>
 	</div>
 
-
 	<script>
-		fetch('http://ddragon.leagueoflegends.com/cdn/10.16.1/data/en_US/champion.json')
+		fetch('https://jsonplaceholder.typicode.com/users')
 			.then(response => response.json())
 			.then(json => {
 				console.log(json)
-				app.users = json.data
-				app.person = app.users.Aatrox
+				app.users = json
+				app.person = json[0]
 			})
 		let app = new Vue({
-			el: '#app',
+			el: '#app' ,
 			methods: {
 				viewBio: function (user) {
 					this.person = user
-					// var str = document.getElementById("demo").innerHTML;
-					// var res = str.replace(".png", "_0.jpg");
-					// document.getElementById("demo").innerHTML = res; //ผมลองใช้ดูแล้วภาพไม่เปลี่ยน
 				}
 			},
 			data: {
 				person: {
-					"name": '..loading',
-					"title": '..loading',
-					"info": {
-						"attack": "aaa"
+					"id": 1,
+					"name": "... Loading",
+					"username": "... Loading",
+					"email": "... Loading",
+					"website": "... Loading",
+					"phone": "... Loading",
+					"company": {
+						"name": "... Loading",
 					}
 				},
-				users:
+				users: [
 				{
-					"name": '..loading',
-					"title": '..loading',
-					"info": {
-						"attack": "aaa"
+					"id": 1,
+					"name": "... Loading",
+					"username": "... Loading",
+					"email": "... Loading",
+					"website": "... Loading",
+					"phone": "... Loading",
+					"company": {
+						"name": "... Loading",
 					}
-				},
+				}
+				]
 			}
 		})
 
 	</script>
 </body>
-
 </html>
