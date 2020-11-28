@@ -10,15 +10,36 @@
 
 <body>
 	<div id="app">
-		About
-		<h3>username {{person.username}}</h3>
-		<h3>name {{person.name}}</h3>
-		<h3>email {{person.email}}</h3>
-		<h3>website {{person.website}}</h3>
-		<h3>company {{person.company.name}}</h3>
+		<center>
+			<div class="about">
+				<h1>About</h1>
+				<h3>username {{person.username}}</h3>
+				<h3>name {{person.name}}</h3>
+				<h3>email {{person.email}}</h3>
+				<h3>website {{person.website}}</h3>
+				<h3>company {{person.company.name}}</h3>
+			</div>
 
-		User
-		<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)" id="name">{{u.username}}</h2>
+			<hr>
+
+			<div>
+				<button @click="isthisgood">เขาเป็นสมาชิกกลุ่มที่ดีหรือไม่</button>
+				<h1>{{yesno.answer}}</h2>
+				<img :src="yesno.image">
+			</div>
+
+			<hr>
+			
+		</center>
+
+		<br>
+
+		<div>
+			<h1>User</h1>
+			<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)">
+				{{u.username}}
+			</h2>
+		</div>
 	</div>
 
 	<script>
@@ -34,9 +55,22 @@
 			methods: {
 				viewBio: function (user) {
 					this.person = user
+				},
+				isthisgood: function(){
+					fetch('https://yesno.wtf/api')
+					.then(response => response.json())
+					.then(json => {
+						console.log(json)
+						app.yesno = json
+			})
 				}
 			},
 			data: {
+				yesno: {
+					"answer": "อยากรู้ คลิกเลย",
+					"forced": false,
+					"image": ""
+				},
 				person: {
 					"id": 1,
 					"name": "... Loading",

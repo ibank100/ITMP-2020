@@ -1,0 +1,27 @@
+body{
+	background: linear-gradient(to bottom right, mediumpurple, indigo);
+}
+#app{
+	border: 2px;
+  	background-color: rgba(105,105,105,0.6);
+	border-radius: .5em;
+	padding: 4px;
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
+
+h2{
+	border-left: 6px solid;
+  	background-color: rgba(176,224,230,0.8);
+	border-radius: .5em;
+	padding: 4px;
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
+
+.about{
+	border: 2px;
+  	background-color: rgba(240,248,255,0.6);
+	border-radius: .5em;
+	padding: 4px;
+}
